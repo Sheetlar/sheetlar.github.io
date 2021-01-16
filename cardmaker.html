@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+	<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+	<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: rgba(0,0,0,0.8);
+			font-family: Calibri, Arial, sans-serif;
+		}
+		#page {
+			margin: 50px auto;
+		}
+	</style>
+</head>
+<body>
+	<!--  Image conversion by html2canvas =>https://html2canvas.hertzen.com/<=  -->
+	<script>
+		var pageWidth = 1200;
+		var pageHeight = 800;
+		var pageBackground = 'white';
+		var borderMargin = 30;
+		var borderWidth = 35;
+		var borderOuterRadius = 40;
+		var borderInnerRadius = 20;
+		var borderColor = 'yellow';
+		var paddingWidth = 30;
+
+		function splitToSpan(text) {
+			var p = document.createElement("p");
+			for (var i = 0; i < text.length; i++) {
+				var s = document.createElement("span");
+				s.innerHTML = text[i];
+				p.appendChild(s);
+			}
+			return p;
+		}
+
+		function createPage() {
+			var page = document.createElement("div");
+			page.id = "page";
+			page.style.width = pageWidth.toString() + 'px';
+			page.style.height = pageHeight.toString() + 'px';
+			page.style.backgroundColor = pageBackground;
+			var border = document.createElement("div");
+			border.style.position = 'relative';
+			border.style.top = borderMargin.toString() + 'px';
+			border.style.left = borderMargin.toString() + 'px';
+			border.style.borderRadius = borderOuterRadius.toString() + 'px';
+			border.style.width = 'calc(100% - ' + (borderMargin * 2).toString() + 'px)';
+			border.style.height = 'calc(100% - ' + (borderMargin * 2).toString() + 'px)';
+			border.style.backgroundColor = borderColor;
+			page.appendChild(border);
+			var padding = document.createElement("div");
+			padding.style.position = 'relative';
+			padding.style.top = borderWidth.toString() + 'px';
+			padding.style.left = borderWidth.toString() + 'px';
+			padding.style.borderRadius = borderInnerRadius.toString() + 'px';
+			padding.style.width = 'calc(100% - ' + (borderWidth * 2).toString() + 'px)';
+			padding.style.height = 'calc(100% - ' + (borderWidth * 2).toString() + 'px)';
+			padding.style.backgroundColor = pageBackground;
+			border.appendChild(padding);
+			var main = document.createElement("div");
+			main.id = 'main';
+			main.style.position = 'relative';
+			main.style.top = paddingWidth.toString() + 'px';
+			main.style.left = paddingWidth.toString() + 'px';
+			main.style.width = 'calc(100% - ' + (paddingWidth * 2).toString() + 'px)';
+			main.style.height = 'calc(100% - ' + (paddingWidth * 2).toString() + 'px)';
+			main.style.backgroundColor = pageBackground;
+			padding.appendChild(main);
+			return page;
+		}
+	</script>
+</body>
+</html>
